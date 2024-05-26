@@ -1,7 +1,8 @@
-import styled, { createGlobalStyle } from "styled-components";
-import { Normalize } from "./normalize";
-
 import { Header } from "@/widgets/Header/ui";
+
+import { Normalize } from "@/shared/const/Normalize";
+import { GlobalStyle } from "@/shared/const/GlobalStyle";
+import { Container } from "@/shared/const/Container";
 
 export const UserSearch = () => {
   return (
@@ -15,19 +16,3 @@ export const UserSearch = () => {
     </>
   );
 };
-
-const GlobalStyle = createGlobalStyle`
-body {
-  font-family: sans-serif;
-  background-color: #141C2F;
-}
-`;
-
-const Container = styled.div`
-  max-width: 730px;
-  min-height: 580px;
-  margin-inline: auto;
-  padding-inline: 15px;
-  background-color: #fff;
-  margin-top: 10%;
-`;

@@ -19,4 +19,5 @@ const HeaderInner = styled.div``;
 const Logo = styled.p`
   font-size: 30px;
   font-weight: 500;
+  text-transform: lowercase;
 `;

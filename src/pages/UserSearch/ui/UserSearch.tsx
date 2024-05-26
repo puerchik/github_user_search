@@ -1,9 +1,22 @@
-import "./App.css";
+import styled, { createGlobalStyle } from "styled-components";
+import { Normalize } from "./normalize";
 
 export const UserSearch = () => {
   return (
     <>
-      <h1>Hello</h1>
+      <Normalize />
+      <GlobalStyle />
+      <Title>Hello</Title>
     </>
   );
 };
+
+const GlobalStyle = createGlobalStyle`
+body {
+  background-color: #787878;
+}
+`;
+
+const Title = styled.h1`
+  color: #ffffff;
+`;

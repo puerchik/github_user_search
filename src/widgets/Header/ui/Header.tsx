@@ -1,6 +1,6 @@
-import { ColorScheme } from "@/features/ColorScheme";
-
 import styled from "styled-components";
+
+import { ColorScheme } from "@/features/ColorScheme";
 import { FlexRow } from "@/shared/const/FlexRow";
 
 export const Header = () => {

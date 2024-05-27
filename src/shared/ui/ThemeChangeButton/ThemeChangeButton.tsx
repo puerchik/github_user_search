@@ -1,22 +1,18 @@
 import styled from "styled-components";
-import sun from "./../icons/sun.svg";
+
+import { ResetButton } from "@/shared/const/ResetButton";
+import sun from "@/shared/ui/icons/sun.svg";
 
 export const ThemeChangeButton = () => {
   return (
     <>
-      <Button>Light</Button>
+      <ThemeChanger>Light</ThemeChanger>
     </>
   );
 };
 
-const Button = styled.button`
+const ThemeChanger = styled(ResetButton)`
   position: relative;
-  padding: 0;
-  border: none;
-  font: inherit;
-  color: inherit;
-  background-color: transparent;
-  cursor: pointer;
 
   padding-block: 5px;
   padding-right: 45px;

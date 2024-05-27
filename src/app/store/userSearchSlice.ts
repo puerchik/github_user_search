@@ -13,6 +13,7 @@ const initialState: State = {
   twitter_username: null,
   blog: "",
   company: null,
+  url: "",
 };
 
 const userSearchSlice = createSlice({

@@ -1,11 +1,16 @@
-import { getUser } from "@/shared/api/api";
 import { useEffect } from "react";
+import { useAppDispatch } from "@/shared/hooks/reduxHooks";
+
 import styled from "styled-components";
+import { getUser } from "@/shared/api";
 
 export const User = () => {
+  const dispatch = useAppDispatch();
+
   const setUser = async () => {
     const res = await getUser("feature-sliced");
-    console.log(res);
+
+    console.log(res.data);
   };
 
   useEffect(() => {

@@ -46,4 +46,5 @@ export type State = Pick<
   | "twitter_username"
   | "blog"
   | "company"
+  | "url"
 >;

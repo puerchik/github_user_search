@@ -1,26 +1,68 @@
 import { useEffect } from "react";
-import { useAppDispatch } from "@/shared/hooks/reduxHooks";
+import { useAppDispatch, useAppSelector } from "@/shared/hooks/reduxHooks";
 
 import styled from "styled-components";
 import { getUser } from "@/shared/api";
+import { appActions } from "@/app/store/userSearchSlice";
+import { FlexRow } from "@/shared/const/FlexRow";
 
 export const User = () => {
+  const user = useAppSelector((state) => state.appReducer)[0];
   const dispatch = useAppDispatch();
 
   const setUser = async () => {
     const res = await getUser("feature-sliced");
+    const {
+      login,
+      created_at,
+      avatar_url,
+      bio,
+      public_repos,
+      followers,
+      following,
+      location,
+      twitter_username,
+      blog,
+      company,
+      url,
+    } = res.data;
 
-    console.log(res.data);
+    dispatch(
+      appActions.getUser({
+        login,
+        created_at,
+        avatar_url,
+        bio,
+        public_repos,
+        followers,
+        following,
+        location,
+        twitter_username,
+        blog,
+        company,
+        url,
+      })
+    );
   };
 
   useEffect(() => {
     setUser();
   }, []);
 
+  console.log(user);
+
   return (
     <>
       <UserWrapper>
-        <p>User</p>
+        <FlexRow>
+          <img
+            src={user.avatar_url}
+            width="125"
+            height="125"
+            alt="GitHub avatar"
+            loading="lazy"
+          />
+        </FlexRow>
       </UserWrapper>
     </>
   );

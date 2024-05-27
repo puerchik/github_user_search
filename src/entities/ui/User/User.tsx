@@ -1,6 +1,17 @@
+import { getUser } from "@/shared/api/api";
+import { useEffect } from "react";
 import styled from "styled-components";
 
 export const User = () => {
+  const setUser = async () => {
+    const res = await getUser("feature-sliced");
+    console.log(res);
+  };
+
+  useEffect(() => {
+    setUser();
+  }, []);
+
   return (
     <>
       <UserWrapper>

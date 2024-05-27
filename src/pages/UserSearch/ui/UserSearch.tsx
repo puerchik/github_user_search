@@ -1,4 +1,5 @@
 import { Header } from "@/widgets/Header/ui";
+import { Main } from "@/widgets/Main";
 
 import { Normalize } from "@/shared/const/Normalize";
 import { GlobalStyle } from "@/shared/const/GlobalStyle";
@@ -12,6 +13,7 @@ export const UserSearch = () => {
 
       <Container>
         <Header />
+        <Main />
       </Container>
     </>
   );

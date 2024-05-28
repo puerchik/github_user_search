@@ -7,7 +7,7 @@ import { appActions } from "@/app/store/userSearchSlice";
 import { FlexRow } from "@/shared/const/FlexRow";
 
 export const User = () => {
-  const user = useAppSelector((state) => state.appReducer)[0];
+  const [user] = useAppSelector((state) => state.appReducer);
   const dispatch = useAppDispatch();
 
   const setUser = async () => {

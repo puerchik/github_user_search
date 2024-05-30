@@ -103,7 +103,7 @@ const UserWrapper = styled.section`
   background-color: #1f2a48;
   border-radius: 15px;
   padding: 45px;
-  min-height: 350px;
+  height: 100%;
 `;
 
 const UserProfile = styled.div`

@@ -3,7 +3,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState: State[] = [
   {
-    login: "",
+    name: "",
     created_at: "",
     avatar_url: "",
     bio: null,
@@ -14,7 +14,7 @@ const initialState: State[] = [
     twitter_username: null,
     blog: "",
     company: null,
-    url: "",
+    html_url: "",
   },
 ];
 

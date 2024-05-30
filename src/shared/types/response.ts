@@ -35,7 +35,7 @@ export type GitHubUser = {
 
 export type State = Pick<
   GitHubUser,
-  | "login"
+  | "name"
   | "created_at"
   | "avatar_url"
   | "bio"
@@ -46,5 +46,5 @@ export type State = Pick<
   | "twitter_username"
   | "blog"
   | "company"
-  | "url"
+  | "html_url"
 >;

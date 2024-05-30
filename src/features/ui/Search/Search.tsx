@@ -3,7 +3,7 @@ import { AxiosError } from "axios";
 
 import { useAppDispatch } from "@/shared/hooks/reduxHooks";
 import { appActions } from "@/app/store/userSearchSlice";
-import { setUser } from "@/shared/utils/setUser";
+import { setUser } from "@/shared/api/setUser";
 
 import { SearchButton } from "@/shared/ui/SearchButton";
 

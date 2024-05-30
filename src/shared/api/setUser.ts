@@ -1,4 +1,3 @@
-import { appActions } from "@/app/store/userSearchSlice";
 import { getUser } from "@/shared/api";
 
 export const setUser = async (username: string) => {

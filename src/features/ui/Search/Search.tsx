@@ -1,11 +1,18 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import styled from "styled-components";
+import { AxiosError } from "axios";
+
+import { useAppDispatch } from "@/shared/hooks/reduxHooks";
+import { appActions } from "@/app/store/userSearchSlice";
+import { setUser } from "@/shared/utils/setUser";
 
 import { SearchButton } from "@/shared/ui/SearchButton";
-import search from "@/shared/ui/icons/search.svg";
+
+import styled from "styled-components";
 import { VisuallyHidden } from "@/shared/const/VisuallyHidden";
 import { FlexRow } from "@/shared/const/FlexRow";
 import { ResetInput } from "@/shared/const/ResetInput";
+
+import search from "@/shared/ui/icons/search.svg";
 
 type Input = {
   username: string;
@@ -13,8 +20,20 @@ type Input = {
 
 export const Search = () => {
   const { register, handleSubmit } = useForm<Input>();
+  const dispatch = useAppDispatch();
 
-  const onSubmit: SubmitHandler<Input> = (data) => console.log(data.username);
+  const onSubmit: SubmitHandler<Input> = async (data) => {
+    try {
+      const username = await setUser(data.username);
+      dispatch(appActions.getUser(username));
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        console.log(error.message);
+      } else {
+        console.log(error);
+      }
+    }
+  };
 
   return (
     <>

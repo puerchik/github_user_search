@@ -1,13 +1,11 @@
-import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "@/shared/hooks/reduxHooks";
+import { useAppSelector } from "@/shared/hooks/reduxHooks";
 
-import styled from "styled-components";
-import { getUser } from "@/shared/api";
-import { appActions } from "@/app/store/userSearchSlice";
-import { FlexRow } from "@/shared/const/FlexRow";
-import { FlexColumn } from "@/shared/const/FlexColumn";
 import { GitStatistic } from "@/shared/ui/GitStatistic";
 import { Contact } from "@/shared/ui/Contact";
+
+import styled from "styled-components";
+import { FlexRow } from "@/shared/const/FlexRow";
+import { FlexColumn } from "@/shared/const/FlexColumn";
 
 import pinIcon from "@/shared/ui/icons/pin.svg";
 import twitterIcon from "@/shared/ui/icons/twitter.svg";
@@ -16,48 +14,6 @@ import buildingIcon from "@/shared/ui/icons/building.svg";
 
 export const User = () => {
   const [user] = useAppSelector((state) => state.appReducer);
-  const dispatch = useAppDispatch();
-
-  const setUser = async () => {
-    const res = await getUser("feature-sliced");
-    const {
-      name,
-      created_at,
-      avatar_url,
-      bio,
-      public_repos,
-      followers,
-      following,
-      location,
-      twitter_username,
-      blog,
-      company,
-      html_url,
-    } = res.data;
-
-    dispatch(
-      appActions.getUser({
-        name,
-        created_at,
-        avatar_url,
-        bio,
-        public_repos,
-        followers,
-        following,
-        location,
-        twitter_username,
-        blog,
-        company,
-        html_url,
-      })
-    );
-  };
-
-  useEffect(() => {
-    setUser();
-  }, []);
-
-  console.log(user);
 
   return (
     <>

@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { AxiosError } from "axios";
 
-import { useAppDispatch } from "@/shared/hooks/reduxHooks";
+import { useAppDispatch, useAppSelector } from "@/shared/hooks/reduxHooks";
 import { appActions } from "@/app/store/userSearchSlice";
 import { setUser } from "@/shared/api/setUser";
 
@@ -22,17 +22,25 @@ type Input = {
 export const Search = () => {
   const { register, handleSubmit } = useForm<Input>();
   const dispatch = useAppDispatch();
+  const errorStatus = !!useAppSelector((state) => state.screenStatus.error);
 
   const onSubmit: SubmitHandler<Input> = async (data) => {
     try {
       const username = await setUser(data.username);
       dispatch(appActions.getUser(username));
+      dispatch(screenStatusActions.setScreen({ homeScreen: false }));
+      if (errorStatus) {
+        dispatch(screenStatusActions.setError({ error: false }));
+      }
     } catch (error) {
+      console.log(error);
       if (error instanceof AxiosError) {
-        dispatch(screenStatusActions.setError({ error: error.response?.status }));
+        error.response?.status
+          ? dispatch(screenStatusActions.setError({ error: error.response?.status }))
+          : dispatch(screenStatusActions.setError({ error: true }));
         console.log(error.response?.status);
       } else {
-        console.log(error);
+        dispatch(screenStatusActions.setError({ error: true }));
       }
     }
   };

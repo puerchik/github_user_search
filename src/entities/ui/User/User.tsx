@@ -14,7 +14,8 @@ import buildingIcon from "@/shared/ui/icons/building.svg";
 
 export const User = () => {
   const [user] = useAppSelector((state) => state.users);
-  const screenStatus = useAppSelector((state) => state.screenStatus);
+  const screenStatus = useAppSelector((state) => state.screenStatus.homeScreen);
+  const errorStatus = useAppSelector((state) => state.screenStatus.error);
 
   const date = new Date(user.created_at);
   const day = date.getDate();
@@ -26,7 +27,11 @@ export const User = () => {
   return (
     <>
       <UserWrapper>
-        {true ? (
+        {errorStatus === 404 ? (
+          <p>User is not found</p>
+        ) : !!errorStatus ? (
+          <p>Error!</p>
+        ) : screenStatus ? (
           <p>Please enter github username above</p>
         ) : (
           <FlexRow $columnGap="35px" $alignItems="flex-start">

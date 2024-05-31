@@ -20,7 +20,7 @@ const screenStatusSlice = createSlice({
 
 type ScreenStatus = {
   homeScreen: boolean;
-  error: boolean | string | number | undefined;
+  error: boolean | string | number | undefined | unknown;
 };
 
 export const screenStatusReducer = screenStatusSlice.reducer;

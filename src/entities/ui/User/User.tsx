@@ -3,7 +3,7 @@ import { useAppSelector } from "@/shared/hooks/reduxHooks";
 import { GitStatistic } from "@/shared/ui/GitStatistic";
 import { Contact } from "@/shared/ui/Contact";
 
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { FlexRow } from "@/shared/const/FlexRow";
 import { FlexColumn } from "@/shared/const/FlexColumn";
 
@@ -14,6 +14,13 @@ import buildingIcon from "@/shared/ui/icons/building.svg";
 
 export const User = () => {
   const [user] = useAppSelector((state) => state.appReducer);
+
+  const date = new Date(user.created_at);
+  const day = date.getDate();
+  const month = date.toLocaleString("en-EN", { month: "short" });
+  const year = date.getFullYear();
+
+  console.log(user);
 
   return (
     <>
@@ -28,14 +35,18 @@ export const User = () => {
           />
           <FlexColumn $rowGap="35px">
             <UserProfile>
-              <FlexRow $columnGap="35px" $marginBotton="20px">
-                <Login>{user.name}</Login>
-                <Created>{user.created_at}</Created>
+              <FlexRow $columnGap="35px" $marginBotton="20px" $alignItems="flex-end">
+                <UserName>{user.name}</UserName>
+                <Created>
+                  Joined {day} {month} {year}
+                </Created>
               </FlexRow>
               <Site href={user.html_url} target="_blank">
                 GitHub profile
               </Site>
-              <Bio>{user.bio}</Bio>
+              <Bio $disabled={!!user.bio}>
+                {user.bio !== null ? user.bio : "This profile has no bio"}
+              </Bio>
             </UserProfile>
             <UserStatistics $columnGap="30px">
               <GitStatistic title="Repos" value={user.public_repos} />
@@ -69,7 +80,6 @@ const UserProfile = styled.div`
 const UserStatistics = styled(FlexRow)`
   background-color: #141c2f;
   padding: 20px 30px;
-  padding-right: 80px;
   border-radius: 10px;
 `;
 
@@ -83,9 +93,15 @@ const Avatar = styled.img`
   clip-path: circle(50%);
 `;
 
-const Login = styled.h1``;
+const UserName = styled.h1`
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 1px;
+`;
 
-const Created = styled.p``;
+const Created = styled.p`
+  font-size: 18px;
+`;
 
 const Site = styled.a`
   display: inline-block;
@@ -94,4 +110,11 @@ const Site = styled.a`
   text-decoration: none;
 `;
 
-const Bio = styled.p``;
+const Bio = styled.p<{ $disabled?: boolean }>`
+  ${(props) =>
+    !props.$disabled &&
+    css`
+      color: #808080;
+      user-select: none;
+    `}
+`;

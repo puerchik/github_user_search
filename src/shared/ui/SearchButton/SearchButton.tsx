@@ -19,4 +19,9 @@ const Search = styled(ResetButton)`
   background-color: #0079fe;
   border-radius: 10px;
   letter-spacing: 1px;
+  transition: 0.2s;
+
+  &:hover {
+    color: #141c2f;
+  }
 `;

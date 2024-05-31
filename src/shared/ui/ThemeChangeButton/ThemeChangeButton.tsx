@@ -19,6 +19,11 @@ const ThemeChanger = styled(ResetButton)`
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 16px;
+  transition: 0.2s;
+
+  &:hover {
+    color: #0079fe;
+  }
 
   &::after {
     content: "";

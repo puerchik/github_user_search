@@ -9,5 +9,5 @@ export const Container = styled.main`
   min-height: 580px;
   margin-inline: auto;
   padding-inline: 15px;
-  margin-top: 8%;
+  margin-top: 5%;
 `;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { FlexRow } from "@/shared/const/FlexRow";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 export const Contact = ({ icon, link, value }: Props) => {
   return (
     <>
-      <ContactWrapper $columnGap="15px">
+      <ContactWrapper $disabled={!!value} $columnGap="15px">
         <img src={icon} alt="" />
         {link && value ? (
           <a href={value} target="_blank">
@@ -24,7 +24,9 @@ export const Contact = ({ icon, link, value }: Props) => {
   );
 };
 
-const ContactWrapper = styled(FlexRow)`
+const ContactWrapper = styled(FlexRow)<{
+  $disabled: boolean;
+}>`
   justify-content: flex-start;
 
   & a {
@@ -35,4 +37,15 @@ const ContactWrapper = styled(FlexRow)`
   & img {
     height: 20px;
   }
+
+  ${(props) =>
+    !props.$disabled &&
+    css`
+      color: #808080;
+      user-select: none;
+
+      & img {
+        opacity: 0.5;
+      }
+    `}}
 `;

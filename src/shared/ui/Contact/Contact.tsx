@@ -44,12 +44,21 @@ ${(props) =>
 
 & a {
   text-decoration: none;
+  transition: 0.2s;
+
+  &:hover {
+   color: ${(props) =>
+     props.theme.theme === "dark"
+       ? `#0177fb          
+          `
+       : `
+        #ffffff;`};
+  }
 }
-
-
 
   & img {
     height: 20px;
+    ${(props) => props.theme.theme === "light" && "filter: invert(1);"}    
   }
 
   ${(props) =>

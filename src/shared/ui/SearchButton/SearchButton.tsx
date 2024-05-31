@@ -16,15 +16,30 @@ export const SearchButton = ({ type }: Props) => {
 
 const Search = styled(ResetButton)`
   padding: 15px 20px;
-  background-color: #0079fe;
+  background-color: ${(props) => (props.theme.theme === "dark" ? "#0079fe" : "#d8d8d8")};
   border-radius: 10px;
   letter-spacing: 1px;
   transition: 0.2s;
 
   &:hover {
-    box-shadow: 0px 0px 19px 20px rgba(255, 255, 255, 0.27) inset;
-    -webkit-box-shadow: 0px 0px 19px 20px rgba(255, 255, 255, 0.27) inset;
-    -moz-box-shadow: 0px 0px 19px 20px rgba(255, 255, 255, 0.27) inset;
+    box-shadow: 0px 0px 19px 20px
+      ${(props) =>
+        props.theme.theme === "dark"
+          ? "rgba(255, 255, 255, 0.27)"
+          : "rgba(0, 0, 0, 0.27)"}
+      inset;
+    -webkit-box-shadow: 0px 0px 19px 20px
+      ${(props) =>
+        props.theme.theme === "dark"
+          ? "rgba(255, 255, 255, 0.27)"
+          : "rgba(0, 0, 0, 0.27)"}
+      inset;
+    -moz-box-shadow: 0px 0px 19px 20px
+      ${(props) =>
+        props.theme.theme === "dark"
+          ? "rgba(255, 255, 255, 0.27)"
+          : "rgba(0, 0, 0, 0.27)"}
+      inset;
     color: ${(props) => (props.theme.theme === "dark" ? "#141c2f" : "#ffffff")};
   }
 `;

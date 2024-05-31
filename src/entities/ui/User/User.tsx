@@ -156,7 +156,6 @@ const Created = styled.p`
 const Site = styled.a`
   display: inline-block;
   margin-bottom: 30px;
-  text-decoration: none;
   transition: 0.2s;
   color: ${(props) =>
     props.theme.theme === "dark"

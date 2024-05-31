@@ -43,7 +43,6 @@ ${(props) =>
   `}
 
 & a {
-  text-decoration: none;
   transition: 0.2s;
 
   &:hover {

@@ -71,26 +71,52 @@ const UserWrapper = styled.section`
   border-radius: 15px;
   padding: 45px;
   height: 100%;
+
+  @media (max-width: 585px) {
+    padding: 25px;
+  }
 `;
 
 const UserProfile = styled.div`
   width: 100%;
+
+  @media (max-width: 768px) {
+    & div {
+      flex-direction: column;
+      align-items: flex-start;
+      row-gap: 15px;
+    }
+  }
 `;
 
 const UserStatistics = styled(FlexRow)`
   background-color: #141c2f;
   padding: 20px 30px;
   border-radius: 10px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 15px;
+  }
 `;
 
 const UserContacts = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
+
+  @media (max-width: 585px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const Avatar = styled.img`
   clip-path: circle(50%);
+
+  @media (max-width: 585px) {
+    display: none;
+  }
 `;
 
 const UserName = styled.h1`

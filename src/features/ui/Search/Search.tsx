@@ -82,6 +82,18 @@ const SearchInput = styled(ResetInput)`
     color: inherit;
     font-size: inherit;
   }
+
+  @media (max-width: 585px) {
+    width: 230px;
+  }
+
+  @media (max-width: 480px) {
+    width: 120px;
+
+    &::placeholder {
+      opacity: 0;
+    }
+  }
 `;
 
 const InputWrapper = styled(FlexRow)`

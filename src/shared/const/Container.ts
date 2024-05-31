@@ -8,6 +8,6 @@ export const Container = styled.main`
   max-width: 830px;
   min-height: 580px;
   margin-inline: auto;
-  padding-inline: 15px;
+  padding: 15px;
   margin-top: 5%;
 `;

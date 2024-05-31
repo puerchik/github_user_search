@@ -68,7 +68,15 @@ export const Search = () => {
 };
 
 const SearchForm = styled.form`
-  background-color: #1f2a48;
+  ${(props) =>
+    props.theme.theme === "dark"
+      ? `
+    background-color: #1f2a48
+      `
+      : `
+    background-color: #a5a3a3;
+    color: #333;`};
+
   border-radius: 15px;
   padding: 10px;
   padding-left: 25px;

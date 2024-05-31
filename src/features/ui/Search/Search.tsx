@@ -13,6 +13,7 @@ import { FlexRow } from "@/shared/const/FlexRow";
 import { ResetInput } from "@/shared/const/ResetInput";
 
 import search from "@/shared/ui/icons/search.svg";
+import { screenStatusActions } from "@/app/store/screenStatusSlice";
 
 type Input = {
   username: string;
@@ -28,7 +29,8 @@ export const Search = () => {
       dispatch(appActions.getUser(username));
     } catch (error) {
       if (error instanceof AxiosError) {
-        console.log(error.message);
+        dispatch(screenStatusActions.setError({ error: error.response?.status }));
+        console.log(error.response?.status);
       } else {
         console.log(error);
       }

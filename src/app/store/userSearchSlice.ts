@@ -22,7 +22,7 @@ const userSearchSlice = createSlice({
   name: "userSearch",
   initialState,
   reducers: {
-    getUser(state, action: PayloadAction<State>) {
+    getUser(state: State[], action: PayloadAction<State>) {
       state[0] = action.payload;
     },
   },

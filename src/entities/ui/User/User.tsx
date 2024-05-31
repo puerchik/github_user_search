@@ -22,8 +22,6 @@ export const User = () => {
   const month = date.toLocaleString("en-EN", { month: "short" });
   const year = date.getFullYear();
 
-  console.log(user, screenStatus);
-
   return (
     <>
       <UserWrapper>

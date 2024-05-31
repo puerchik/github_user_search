@@ -33,7 +33,6 @@ export const Search = () => {
         dispatch(screenStatusActions.setError({ error: false }));
       }
     } catch (error) {
-      console.log(error);
       if (error instanceof AxiosError) {
         error.response?.status
           ? dispatch(screenStatusActions.setError({ error: error.response?.status }))

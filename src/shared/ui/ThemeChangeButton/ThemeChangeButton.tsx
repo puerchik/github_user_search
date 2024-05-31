@@ -1,12 +1,27 @@
+import { useAppDispatch, useAppSelector } from "@/shared/hooks/reduxHooks";
+import { screenStatusActions } from "@/app/store/screenStatusSlice";
 import styled from "styled-components";
 
 import { ResetButton } from "@/shared/const/ResetButton";
 import sun from "@/shared/ui/icons/sun.svg";
 
 export const ThemeChangeButton = () => {
+  const theme = useAppSelector((state) => state.screenStatus.theme);
+  const dispatch = useAppDispatch();
+
+  const changeThemeHandler = () => {
+    dispatch(
+      screenStatusActions.setTheme(
+        theme === "dark" ? { theme: "light" } : { theme: "dark" }
+      )
+    );
+  };
+
   return (
     <>
-      <ThemeChanger>Light</ThemeChanger>
+      <ThemeChanger onClick={changeThemeHandler}>
+        {theme === "dark" ? "light" : "dark"}
+      </ThemeChanger>
     </>
   );
 };

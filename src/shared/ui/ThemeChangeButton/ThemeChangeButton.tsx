@@ -3,7 +3,8 @@ import { screenStatusActions } from "@/app/store/screenStatusSlice";
 import styled from "styled-components";
 
 import { ResetButton } from "@/shared/const/ResetButton";
-import sun from "@/shared/ui/icons/sun.svg";
+import sunIcon from "@/shared/ui/icons/sun.svg";
+import moonIcon from "@/shared/ui/icons/moon.svg";
 
 export const ThemeChangeButton = () => {
   const theme = useAppSelector((state) => state.screenStatus.theme);
@@ -37,7 +38,7 @@ const ThemeChanger = styled(ResetButton)`
   transition: 0.2s;
 
   &:hover {
-    color: #0079fe;
+    color: ${(props) => (props.theme.theme === "dark" ? "#0079fe" : "#ffffff")};
   }
 
   &::after {
@@ -47,6 +48,8 @@ const ThemeChanger = styled(ResetButton)`
     aspect-ratio: 1;
     top: 0;
     right: 0;
-    background: url(${sun}) center/contain no-repeat;
+
+    background: url(${(props) => (props.theme.theme === "dark" ? sunIcon : moonIcon)})
+      center/contain no-repeat;
   }
 `;

@@ -10,7 +10,7 @@ body {
           color: #ffffff;
         `
       : `
-      background-color: #f5f5f5;
-      color: #333;`} 
+      background-color: #d8d8d8;
+      color: #333333;`} 
 }
 `;

@@ -22,6 +22,9 @@ const Search = styled(ResetButton)`
   transition: 0.2s;
 
   &:hover {
-    color: #141c2f;
+    box-shadow: 0px 0px 19px 20px rgba(255, 255, 255, 0.27) inset;
+    -webkit-box-shadow: 0px 0px 19px 20px rgba(255, 255, 255, 0.27) inset;
+    -moz-box-shadow: 0px 0px 19px 20px rgba(255, 255, 255, 0.27) inset;
+    color: ${(props) => (props.theme.theme === "dark" ? "#141c2f" : "#ffffff")};
   }
 `;

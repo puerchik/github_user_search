@@ -146,7 +146,6 @@ const Avatar = styled.img`
 const UserName = styled.h1`
   font-size: 25px;
   font-weight: 500;
-  letter-spacing: 1px;
 `;
 
 const Created = styled.p`

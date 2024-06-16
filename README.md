@@ -37,17 +37,23 @@ This project is a simple yet powerful application designed to search for GitHub 
 - Styled Components
 - TypeScript
 
-## Getting Started
+## Installation and Setup
 
-To run this application locally, follow these steps:
+For local development and testing, follow these steps:
 
-1. Ensure you have Node.js installed on your machine.
-2. Clone the repository to your local machine.
-3. Navigate to the project directory in your terminal.
-4. Run `npm install` to install all necessary dependencies listed in `package.json`.
-5. Start the development server by running `npm run dev`.
+1. Clone the repository:
 
-For production builds, use `npm run build` to compile the project and then serve it using any static site hoster of your choice.
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
+
+```bash
+npm run dev
+```
 
 ## Contributing
 
